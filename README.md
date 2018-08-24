@@ -56,6 +56,27 @@ mapStateToProps: receives the state of the store then map the data into props
 mapActionsToProps: dispatch actions in component
 
 - API request Redux Thunk
+The problem is : App fetch data asynchronouly, we need to create action when the request result is ready.
+```
+export function fetchData()
+{
+  const request = axios.get("the url");
+  // Vanilla redux expect to return an action, but the data is not ready
+  return {
+      type: 'FETCH_DATA',
+      playload: data
+  }; 
+  // redux thunk can accept the return value as a function
+  return (dispatch) => {
+      request.then(({data}) =>{
+        dispath({
+          type: 'FETCH_DATA',
+          playload: data
+        })
+      });
+  }
+}
+```
 Redux Thunk is the community-standard method for handling long-running action creators in Redux applications. 
 ![Redux flow](_notes/redux-middleware.png)
 ```
