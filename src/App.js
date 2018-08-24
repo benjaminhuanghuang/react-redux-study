@@ -12,6 +12,11 @@ class App extends Component {
     this.props.onUpdateUser("AAAAA");
   }
 
+  onChange(e)
+  {
+    this.props.onUpdateUser(e.target.value);
+  }
+  
   render() {
     console.log("props in App: ",this.props);   
     return (
@@ -24,6 +29,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <div onClick={()=>this.onClick()}>Update User</div>
+        <input onChange={(e)=>this.onChange(e)}></input>
         {this.props.user}
       </div>
     );
