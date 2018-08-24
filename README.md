@@ -12,6 +12,6 @@
 ```
 
 ## Redux flow
-![Redux flow](notes/redux-flow.png)
+![Redux flow](_notes/redux-flow.png)
 
 
