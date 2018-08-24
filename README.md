@@ -4,6 +4,9 @@
 - Redux Tutorial - Learn React/Redux in one video
   - https://www.youtube.com/watch?v=OSSpVLpuVWA&t=4s
 
+- Basics of Redux Thunk
+  - https://www.youtube.com/watch?v=1QI-UE3-0PU
+
 
 ## Install
 ```
@@ -34,7 +37,26 @@ const mapStateToProps = (state) =>{
 const mapActionsToProps = { 
   onUpdateUser: updateUser
 }
-export default connect(mapStateToProps, mapActionsToProps)(App);
+
+// if want to use props
+const mapActionsToProps2 = (dispatch, props) => {
+  return bindActionCreators({
+    onUpdateUser: updateUser
+  }, dispatch);  
+}
+
+const mergeProps = (propsFromState, propsFromDispath, ownProps) => {
+  console.log(propsFromState, propsFromDispath, ownProps)
+}
+
+export default connect(mapStateToProps, mapActionsToProps, mergeProps)(App);
 ```
 
 mapStateToProps: receives the state of the store then map the data into props
+mapActionsToProps: dispatch actions in component
+
+- API request Redux Thunk
+Redux Thunk is the community-standard method for handling long-running action creators in Redux applications. 
+![Redux flow](_notes/redux-middleware.png)
+```
+```

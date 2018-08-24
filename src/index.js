@@ -6,6 +6,10 @@ import registerServiceWorker from './registerServiceWorker';
 // Real world store / reducer
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+// For thunk
+import { applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+
 //
 import productsReducer from './reducers/products-reducer';
 import userReducer from './reducers/user-reducer';
@@ -16,21 +20,23 @@ const allReducers = combineReducers({
     user: userReducer
 });
 
-/*
-    Support redux devtools
-*/
+const allStoreEnhancers = compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension && window.devToolsExtension()
+);
+
 const store = createStore(
     allReducers,
     {
         products: [{ name: 'iPhone' }],
         user: 'Michael'
     },
-    window.devToolsExtension && window.devToolsExtension()
+    allStoreEnhancers
 );
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <App appProps="passed in" />
     </Provider>,
     document.getElementById('root'));
 
