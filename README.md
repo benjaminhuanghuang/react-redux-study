@@ -15,3 +15,7 @@
 ![Redux flow](_notes/redux-flow.png)
 
 
+## Topic
+- Store, reducer, action
+- Redux devtools
+- Provider

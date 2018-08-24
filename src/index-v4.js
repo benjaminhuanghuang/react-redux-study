@@ -7,6 +7,10 @@ import registerServiceWorker from './registerServiceWorker';
 
 // Real world store / reducer
 import { createStore, combineReducers } from 'redux';
+/*
+    Access store in app
+*/
+import { Provider } from 'react-redux';
 
 // Reducer takes the previous state and an update and applies the update  
 function productsReducer(state = [], action) {
@@ -14,8 +18,7 @@ function productsReducer(state = [], action) {
 }
 
 function userReducer(state = '', action) {
-    switch(action.type)
-    {
+    switch (action.type) {
         case 'updateUser':
             return action.payload.user;
     }
@@ -44,12 +47,16 @@ console.log(store.getState());
 //
 const updateUserAction = {
     type: 'updateUser',
-    payload:{
-         user: 'Jone'
+    payload: {
+        user: 'Jone'
     }
 }
 store.dispatch(updateUserAction);
 console.log(store.getState());
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider>
+        <App />
+    </Provider>,
+    document.getElementById('root'));
 registerServiceWorker();

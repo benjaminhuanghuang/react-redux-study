@@ -14,42 +14,23 @@ function productsReducer(state = [], action) {
 }
 
 function userReducer(state = '', action) {
-    switch(action.type)
-    {
-        case 'updateUser':
-            return action.payload.user;
-    }
+
     return state;
 }
 
 const allReducers = combineReducers({
     products: productsReducer,
     user: userReducer
-});
+}); 
 
-/*
-    Support redux devtools
-*/
-const store = createStore(
-    allReducers,
-    {
-        products: [{ name: 'iPhone' }],
-        user: 'Michael'
-    },
-    window.devToolsExtension && window.devToolsExtension()
-);
+
+const store = createStore(allReducers, {
+    products: [{name: 'iPhone'}],
+    user: 'Michael'
+});   // createStore needs reducer. init state is optional
 
 console.log(store.getState());
 
-//
-const updateUserAction = {
-    type: 'updateUser',
-    payload:{
-         user: 'Jone'
-    }
-}
-store.dispatch(updateUserAction);
-console.log(store.getState());
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
