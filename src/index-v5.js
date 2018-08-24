@@ -3,13 +3,30 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+
+
 // Real world store / reducer
 import { createStore, combineReducers } from 'redux';
+/*
+    Access store in app
+*/
 import { Provider } from 'react-redux';
-//
-import productsReducer from './reducers/products-reducer';
-import userReducer from './reducers/user-reducer';
 
+// Reducer takes the previous state and an update and applies the update  
+function productsReducer(state = [], action) {
+    return state;
+}
+
+
+const UPDATE_USER = 'user:updateUser';
+
+function userReducer(state = '', action) {
+    switch (action.type) {
+        case UPDATE_USER:
+            return action.payload.user;
+    }
+    return state;
+}
 
 const allReducers = combineReducers({
     products: productsReducer,
@@ -27,6 +44,18 @@ const store = createStore(
     },
     window.devToolsExtension && window.devToolsExtension()
 );
+
+console.log(store.getState());
+
+//
+const updateUserAction = {
+    type: UPDATE_USER,
+    payload: {
+        user: 'Jone'
+    }
+}
+store.dispatch(updateUserAction);
+console.log(store.getState());
 
 ReactDOM.render(
     <Provider store={store}>

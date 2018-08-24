@@ -17,5 +17,24 @@
 
 ## Topic
 - Store, reducer, action
+
 - Redux devtools
-- Provider
+
+- Access Redux store in React componet: Provider, connect()
+```
+    <Provider store={store}>
+        <App />
+    </Provider>,
+```
+In App.js
+```
+const mapStateToProps = (state) =>{
+  return state;
+}
+const mapActionsToProps = { 
+  onUpdateUser: updateUser
+}
+export default connect(mapStateToProps, mapActionsToProps)(App);
+```
+
+mapStateToProps: receives the state of the store then map the data into props

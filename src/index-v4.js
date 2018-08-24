@@ -44,13 +44,15 @@ const store = createStore(
 
 console.log(store.getState());
 
-//
+// Actions
 const updateUserAction = {
     type: 'updateUser',
     payload: {
         user: 'Jone'
     }
 }
+
+
 store.dispatch(updateUserAction);
 console.log(store.getState());
 
