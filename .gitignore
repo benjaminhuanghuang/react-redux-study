@@ -1,0 +1,8 @@
+node_modules/
+build/
+*.log
+static/
+__snapshots__
+*-lock.json
+
+.DS_store/
