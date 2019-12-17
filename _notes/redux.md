@@ -70,7 +70,8 @@ The connect function takes another function as an argument: mapStateToProps. map
 ## Event from React component to Redux
 creating a mapDispatchToProps function and passing it as the second argument to connect, we're making our store's dispatch method available for use within our component's this.props object.
 
-
+## Redux flow
+![Redux flow](redux-flow.png)
 
 ## Reference 
 - [React Redux Tutorial for Beginners: Simply Explained](https://chriscourses.com/blog/redux)

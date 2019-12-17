@@ -8,8 +8,7 @@
   npm i -S redux react-redux
 ```
 
-## Redux flow
-![Redux flow](_notes/redux-flow.png)
+
 
 
 ## Topic
