@@ -1,10 +1,7 @@
 import { createStore } from 'redux'
 
 const initialState = {
-  posts: [],
-  loginModal: {
-    open: false
-  }
+  posts: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -13,16 +10,25 @@ const reducer = (state = initialState, action) => {
       posts: state.posts.concat(action.payload)
     })
   }
-
   return state
 }
 
 const store = createStore(reducer);
+// Print store
+// Print store
+console.log("init store: ")
 console.log(store.getState());
-
 
 /*
     Change state
 */
-store.dispatch({ type: 'ADD_POST', payload: { id: 1, title: 'How to Use Redux' } })
+const action_add_post = {
+  type: 'ADD_POST',
+  payload: {
+    id: 1,
+    title: 'How to Use Redux'
+  }
+}
+store.dispatch(action_add_post)
+console.log("store after dispatch: ")
 console.log(store.getState());

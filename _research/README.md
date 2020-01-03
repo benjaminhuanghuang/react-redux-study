@@ -2,7 +2,6 @@
 Install dependency
 ```
 "@babel/node": "^7.7.4",
-"@babel/cli": "^7.7.5",
 "@babel/core": "^7.7.5",
 "@babel/preset-env": "^7.7.6",
 "@babel/preset-react": "^7.7.4"
@@ -19,6 +18,6 @@ and .babelrc
 
 Run 
 ```
-    npx babel-node redux-research/redux-test.js
+    npx babel-node _research/redux-test.js
 ```
 
