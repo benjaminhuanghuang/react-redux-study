@@ -2,6 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
+/*
+  If you don't specify the second argument to connect(), your component will receive dispatch by default
+  component receives props.dispatch when component was connet()
+*/
 const AddTodo = ({ dispatch }) => {
   let input
 
@@ -23,5 +27,8 @@ const AddTodo = ({ dispatch }) => {
     </div>
   )
 }
-
+/*
+  https://react-redux.js.org/using-react-redux/connect-mapdispatch
+  If you don't specify the second argument to connect(), your component will receive dispatch by default
+*/
 export default connect()(AddTodo)
