@@ -70,8 +70,21 @@ The connect function takes another function as an argument: mapStateToProps. map
 ## Event from React component to Redux
 creating a mapDispatchToProps function and passing it as the second argument to connect, we're making our store's dispatch method available for use within our component's this.props object.
 
+
+## Presentational and Container Components
+- https://redux.js.org/basics/usage-with-react
+
+Presentational Components describe the look but don't know where the data comes from, or how to change it. 
+They only render what's given to them. If you migrate from Redux to something else, you'll be able to keep all these components exactly the same. They have no dependency on Redux.
+
+
+
 ## Redux flow
 ![Redux flow](redux-flow.png)
 
 ## Reference 
+- [Redux Basic Tutorial](https://redux.js.org/basics/basic-tutorial)
+
+- [Example: Todo List](https://redux.js.org/basics/example/)
+
 - [React Redux Tutorial for Beginners: Simply Explained](https://chriscourses.com/blog/redux)
