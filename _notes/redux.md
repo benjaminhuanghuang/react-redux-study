@@ -2,8 +2,72 @@
 
 Redux is a state management tool
 
-## What is state
+## Store
 state is a JavaScript object. State can tell certain parts of code to show or hide.
+状态存储在store中
+
+状态复杂时，状态中的不同内容将被保存为store对象的不同字段
+
+store 通过 dispatch() 把action分派 reducer中。
+```
+  store.dispatch({type: 'INCREMENT'})
+```
+
+store.getState() 可用于读取store的状态
+
+
+store的第三个重要方法是subscribe()，创建回调函数。这些回调函数在store状态改变时被调用
+```
+store.subscribe(() => {
+  const storeNow = store.getState()
+  console.log(storeNow)
+})
+```
+## Action and Action Builder
+
+store的状态通过 actions改变。 Action 是对象，它至少有一个字段确定操作的类型。 例如
+```
+{
+  type: 'INCREMENT'
+}
+```
+
+
+Action 的调用者不需要知道任何关于 action 的内部表示，它只需要调用 creator-函数就可以获得正确的操作
+```
+const App = () => {
+  const addNote = (event) => {
+    event.preventDefault()
+    const content = event.target.note.value
+    event.target.note.value = ''
+    store.dispatch(createNote(content))
+    
+  }
+```
+
+## Reducer
+Action 对应用程序状态的影响是通过使用一个 reducer() 函数来定义的。
+reducer 以当前状态和 action 为参数, 并返回一个新的状态。
+
+```
+  const counterReducer = (state = 0, action) => {
+    switch (action.type) {
+      case 'INCREMENT':
+        return state + 1
+      case 'DECREMENT':
+        return state - 1
+      case 'ZERO':
+        return 0
+      default: // if none of the above matches, code comes here
+      return state
+    }
+  }
+```
+
+Reducer 不能直接从应用程序中调用。 Reducer 只作为 createStore( )的参数
+
+
+
 
 ## Local state
 React components typically have their own individual state which determines how they should display and function. This is known as local state.
@@ -21,10 +85,7 @@ The problems of this solution:
 - Using the same state through components that don't have a parent / child relationship is redundant and can require addition calls to a backend server
 
 
-## What is Redux
-Redux creates a global state which you can share between React components—no parent / child relationship required.
 
-When using Redux, you don't actually change the state, you create updated copies of the state that are then inserted into your React components.
 
 ## The Redux Store
 Redux places all of the components' state in one central location. This makes it accessible to all components without requiring a parent / child relationship. The central location in which we store the state is called a store.

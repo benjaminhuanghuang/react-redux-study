@@ -12,3 +12,9 @@
 
 - Redux devtools and debug
 
+
+
+## Update packages
+```
+  npx npm-check-updates  -u 
+```
