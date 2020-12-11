@@ -7,8 +7,9 @@ Thunk dispatch a async function instead of a javascript object.
 
 Thunk is a function returns another function, which contains the actual logic
 ```
-  const displayAlert = () => () => {
-    alert('Hi');
+  // getState to access the current state of redux store
+  export const loadTodos = () => async (dispatch, getState) => {
+
   }
 ```
 ## Setup 

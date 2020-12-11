@@ -29,11 +29,11 @@ const TodoList = ({
       <NewTodoForm />
       <h3>Incomplete:</h3>
       {incompleteTodos.map((todo) => (
-        <TodoListItem todo={todo} onRemovePressed={onRemovePressed} onCompletedPressed={onCompletedPressed} />
+        <TodoListItem key={todo.id} todo={todo} onRemovePressed={onRemovePressed} onCompletedPressed={onCompletedPressed} />
       ))}
       <h3>Completed:</h3>
       {completedTodos.map((todo) => (
-        <TodoListItem todo={todo} onRemovePressed={onRemovePressed} onCompletedPressed={onCompletedPressed} />
+        <TodoListItem key={todo.id} todo={todo} onRemovePressed={onRemovePressed} onCompletedPressed={onCompletedPressed} />
       ))}
     </ListWrapper>
   );
