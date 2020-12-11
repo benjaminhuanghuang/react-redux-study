@@ -1,5 +1,5 @@
 
-# Presentational Components	Container Components
+# Presentational Components vs Container Components
 - https://redux.js.org/basics/usage-with-react
 
 
