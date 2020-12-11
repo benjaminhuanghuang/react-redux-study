@@ -16,7 +16,7 @@ store 通过 dispatch() 把action分派 reducer中。
 store.getState() 可用于读取store的状态
 
 
-store的第三个重要方法是subscribe()，创建回调函数。这些回调函数在store状态改变时被调用
+store的第三个重要方法是subscribe()，subscribe()接受一个回调函数为参数。这些回调函数在store状态改变时被调用
 ```
 store.subscribe(() => {
   const storeNow = store.getState()
