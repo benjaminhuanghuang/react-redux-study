@@ -1,23 +1,42 @@
 
-Thunk is a library meant for handling action creators, functions meant solely to return "actions," JavaScript objects with a updated state data. 
+![](./_images/thunk-how.png)
+![](./_images/thunk-how-2.png)
+![](./_images/thunk-how-3.png)
 
-dispatching an action directly by inlining the object:
-```
-this.props.dispatch({
-  type: 'ADD_POST',
-  payload: { id: this.state.postId, title: this.state.value }
-})
-```
-create a function just to produce the action object in the first place
-```
-function addPost(payload) {
-  return { type: 'ADD_POST', payload }
-}
+Thunk dispatch a async function instead of a javascript object.
 
-this.props.dispatch(
-  addPost({ id: this.state.postId, title: this.state.value })
-)
+Thunk is a function returns another function, which contains the actual logic
 ```
+  const displayAlert = () => () => {
+    alert('Hi');
+  }
+```
+## Setup 
+```
+  npm i redux-thunk redux-devtools-extension @babel/runtime
+
+  npm i -D @babel/plugin-transform-runtime   # add it into .babelrc
+```
+
+##
+```
+import { applyMiddleware} from "redux";
+import thunk from 'redux-thunk';
+// devtools for middleware like thunk
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+export const configureStore = () =>
+  createStore(
+      reducer,
+      composeWithDevTools(applyMiddleware(thunk))
+  );
+
+```
+
+thunks.js
+```
+```
+
 
 ## Reference
 - [React Redux Tutorial for Beginners: Simply Explained](https://chriscourses.com/blog/redux)
