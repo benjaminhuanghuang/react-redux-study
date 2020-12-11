@@ -5,3 +5,7 @@ connected component(container) for production.
 
 ## Keep Redux actions and async operations out fo reducers
 
+
+## Use selectors
+refactor, format data.
+

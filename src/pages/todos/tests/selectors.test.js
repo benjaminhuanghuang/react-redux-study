@@ -17,6 +17,8 @@ describe('The getCompletedTodos selector', () => {
             text: 'Say Hello',
             isCompleted: true,
         }];
+
+        //resultFunc is the second parameter passed in createSelector
         const actual = getCompletedTodos.resultFunc(fakeTodos);
 
         expect(actual).to.deep.equal(expected);
